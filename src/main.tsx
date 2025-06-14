@@ -1,10 +1,17 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import * as React from "react";
+import { ChakraProvider } from "@chakra-ui/react";
+import * as ReactDOM from "react-dom/client";
+import App from "./App";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  ReactDOM.createRoot(rootElement).render(
+    <React.StrictMode>
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
+    </React.StrictMode>
+  );
+} else {
+  throw new Error("Root element not found");
+}
