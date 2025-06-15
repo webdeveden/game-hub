@@ -8,10 +8,12 @@ export interface GamePlatform {
   slug: string;
 }
 export interface Game {
+  // comes from the results data from the api in developer tools
   id: number;
   name: string;
   background_image: string;
   parent_platforms: { platform: GamePlatform }[];
+  metacritic: number;
 }
 
 interface FetchGamesResponse {
