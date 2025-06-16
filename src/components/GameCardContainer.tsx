@@ -7,7 +7,7 @@ interface Props {
 // is like define a template that can be use to style different objects
 const GameCardContainer = ({ children }: Props) => {
   return (
-    <Box width={280} borderRadius={10} overflow={"hidden"}>
+    <Box borderRadius={10} overflow={"hidden"}>
       {children}
     </Box>
   );

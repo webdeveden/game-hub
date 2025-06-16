@@ -3,6 +3,7 @@ import useData from "./useData";
 export interface Genres {
   id: number;
   name: string;
+  image_background: string;
 }
 // hidding the endpoint in the use hook file not in our components
 const useGenres = () => useData<Genres>("/genres");
