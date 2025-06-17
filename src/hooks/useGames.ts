@@ -2,6 +2,7 @@
 // import apiClient from "../services/api-client";
 // import { CanceledError } from "axios";
 import useData from "./useData";
+import type { Genres } from "./useGenres";
 
 export interface GamePlatform {
   id: number;
@@ -22,7 +23,12 @@ export interface Game {
 //   results: Game[];
 // }
 
-const useGames = () => useData<Game>("/games");
+const useGames = (selectedGenre: Genres | null) =>
+  useData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
+    selectedGenre?.id,
+  ]);
+// the second argument in useGames selects paramas base on id.
+
 // const useGames = () => {
 //   // Hook logic here
 //   const [games, setGames] = useState<Game[]>([]);
