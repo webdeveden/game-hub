@@ -7,7 +7,7 @@ import {
   FaAndroid,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo } from "react-icons/si";
+import { SiNintendogamecube } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import type { GamePlatform } from "../hooks/useGames";
 import { HStack, Icon } from "@chakra-ui/react";
@@ -22,7 +22,7 @@ function PlatformIconsList({ platforms }: Props) {
     pc: FaWindows,
     playstation: FaPlaystation,
     xbox: FaXbox,
-    nintento: SiNintendo,
+    nintendo: SiNintendogamecube,
     mac: FaApple,
     linux: FaLinux,
     android: FaAndroid,
