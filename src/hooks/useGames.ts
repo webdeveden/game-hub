@@ -3,6 +3,7 @@
 // import { CanceledError } from "axios";
 import useData from "./useData";
 import type { Genres } from "./useGenres";
+import type { Platform } from "./usePlatforms";
 
 export interface GamePlatform {
   id: number;
@@ -23,10 +24,15 @@ export interface Game {
 //   results: Game[];
 // }
 
-const useGames = (selectedGenre: Genres | null) =>
-  useData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
-    selectedGenre?.id,
-  ]);
+const useGames = (
+  selectedGenre: Genres | null,
+  selectedPlatform: Platform | null
+) =>
+  useData<Game>(
+    "/games",
+    { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
+    [selectedGenre?.id, selectedPlatform?.id]
+  );
 // the second argument in useGames selects paramas base on id.
 
 // const useGames = () => {
