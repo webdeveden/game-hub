@@ -27,8 +27,8 @@ function GameGrid({ gameQuery }: Props) {
       >
         {isLoading &&
           skeletons.map((skeleton) => (
-            <GameCardContainer>
-              <GameCardSkeleton key={skeleton} />
+            <GameCardContainer key={skeleton}>
+              <GameCardSkeleton />
             </GameCardContainer>
           ))}
         {data.map((game) => (
