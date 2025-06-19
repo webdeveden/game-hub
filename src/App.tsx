@@ -5,7 +5,7 @@ import GenreList from "./components/GenreList";
 import { useState } from "react";
 import type { Genres } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
-import SortSelector from "./components/sortSelector";
+import SortSelector from "./components/SortSelector";
 
 import type { Platform } from "./hooks/usePlatforms";
 
