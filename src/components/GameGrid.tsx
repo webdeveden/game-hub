@@ -3,27 +3,23 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-import type { Genres } from "../hooks/useGenres";
-import type { Platform } from "../hooks/usePlatforms";
+// import type { Genres } from "../hooks/useGenres";
+// import type { Platform } from "../hooks/usePlatforms";
+import type { GameQuery } from "../App";
 
 interface Props {
-  selectedGenre: Genres | null;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery;
 }
 
-function GameGrid({ selectedGenre, selectedPlatform }: Props) {
-  const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
+function GameGrid({ gameQuery }: Props) {
+  const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   //   if (error) return <Text>{error}</Text>;
-  if (data.length === 0)
-    return (
-      <Text>
-        No data found with: {selectedPlatform?.name || "None"} Platform
-      </Text>
-    );
+
   return (
     <>
       {error && <Text>Error: {error}</Text>}
+      {!isLoading && data.length === 0 && <Text>No data found</Text>}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
         padding={"10px"}

@@ -1,9 +1,10 @@
 // import { useEffect, useState } from "react";
 // import apiClient from "../services/api-client";
 // import { CanceledError } from "axios";
+import type { GameQuery } from "../App";
 import useData from "./useData";
-import type { Genres } from "./useGenres";
-import type { Platform } from "./usePlatforms";
+// import type { Genres } from "./useGenres";
+// import type { Platform } from "./usePlatforms";
 
 export interface GamePlatform {
   id: number;
@@ -24,14 +25,16 @@ export interface Game {
 //   results: Game[];
 // }
 
-const useGames = (
-  selectedGenre: Genres | null,
-  selectedPlatform: Platform | null
-) =>
+const useGames = (gameQuery: GameQuery) =>
   useData<Game>(
     "/games",
-    { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
-    [selectedGenre?.id, selectedPlatform?.id]
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+      },
+    },
+    [gameQuery]
   );
 // the second argument in useGames selects paramas base on id.
 
