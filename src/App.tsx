@@ -6,6 +6,7 @@ import { useState } from "react";
 import type { Genres } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/sortSelector";
+
 import type { Platform } from "./hooks/usePlatforms";
 
 // packing a related variable using a query pattern
