@@ -1,6 +1,7 @@
 // image optimazation function on the image url
 
 const getCroppedImageUrl = (url: string) => {
+  if (!url) return "";
   const target = "media/";
   const imageOpt = "crop/600/400/";
   const index = url.indexOf(target) + target.length;
