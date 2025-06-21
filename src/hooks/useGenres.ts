@@ -1,4 +1,4 @@
-import useData from "./useData";
+import genres from "../data/genres";
 
 export interface Genres {
   id: number;
@@ -6,7 +6,7 @@ export interface Genres {
   image_background: string;
 }
 // hidding the endpoint in the use hook file not in our components
-const useGenres = () => useData<Genres>("/genres");
+const useGenres = () => ({ data: genres, isLoading: false, error: null });
 
 //     useData()
 //   // Hook logic here

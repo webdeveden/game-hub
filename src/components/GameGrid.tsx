@@ -15,10 +15,9 @@ function GameGrid({ gameQuery }: Props) {
   const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   //   if (error) return <Text>{error}</Text>;
-
+  if (error) return <Text>{error}</Text>;
   return (
     <>
-      {error && <Text>Error: {error}</Text>}
       {!isLoading && data.length === 0 && <Text>No data found</Text>}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
