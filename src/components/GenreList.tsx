@@ -1,4 +1,12 @@
-import { Button, HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Heading,
+  HStack,
+  Image,
+  List,
+  ListItem,
+  Text,
+} from "@chakra-ui/react";
 import useGenres, { type Genres } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 import GenreSkeleton from "./GenreSkeleton";
@@ -16,30 +24,36 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
     return skeletons.map((Skeleton) => <GenreSkeleton key={Skeleton} />);
   }
   return (
-    <List>
-      {data.map((genre) => (
-        <ListItem key={genre.id} paddingY={"5px"}>
-          <HStack>
-            <Image
-              boxSize={"32px"}
-              borderRadius={8}
-              src={getCroppedImageUrl(genre.image_background)}
-            />
-            <Button
-              whiteSpace="normal"
-              textAlign="left"
-              fontSize={"lg"}
-              onClick={() => onSelectGenre(genre)}
-              variant="link"
-              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
-              colorScheme={genre.id === selectedGenre?.id ? "purple" : ""}
-            >
-              {genre.name}
-            </Button>
-          </HStack>
-        </ListItem>
-      ))}
-    </List>
+    <>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genres
+      </Heading>
+      <List>
+        {data.map((genre) => (
+          <ListItem key={genre.id} paddingY={"5px"}>
+            <HStack>
+              <Image
+                boxSize={"32px"}
+                objectFit="cover"
+                borderRadius={8}
+                src={getCroppedImageUrl(genre.image_background)}
+              />
+              <Button
+                whiteSpace="normal"
+                textAlign="left"
+                fontSize={"lg"}
+                onClick={() => onSelectGenre(genre)}
+                variant="link"
+                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                colorScheme={genre.id === selectedGenre?.id ? "purple" : ""}
+              >
+                {genre.name}
+              </Button>
+            </HStack>
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
 };
 
